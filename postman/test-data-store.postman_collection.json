@@ -7,6 +7,20 @@
 	"item": [
 		{
 			"name": "booking - GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f5aa54a-5cbe-4e42-9114-d7b6904edb38",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -22,18 +36,207 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \t\"dataClass\": \"bookings\",\n\t\"brand\": \"HAL\",\n\t\"polarRegion\": \"HAQ\",\n\t\"env\": \"TEST\",\n\t\"reservedBy\": \"jdmallorey\"\n}"
+					"raw": "{\n\t\"brand\": \"HAL\",\n\t\"polarRegion\": \"HAQ\",\n\t\"env\": \"TEST\"\n}"
 				},
 				"url": {
-					"raw": "localhost:4321/data",
+					"raw": "localhost:12700/bookings",
 					"host": [
 						"localhost"
 					],
-					"port": "4321",
+					"port": "12700",
 					"path": [
-						"data"
+						"bookings"
 					]
+				},
+				"description": "Returns bookings based on the following criteria.\n\n\treservedBy:\t\t//optional (any name used to reserve)\n\tpolarRegion:\t//required (HAQ, SBQ)\n\tbrand:\t\t\t//required (HAL, SBN)\n\tenv:\t\t\t//required (TEST, PROD)"
+			},
+			"response": []
+		},
+		{
+			"name": "booking - GET - all (not reserved)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f5aa54a-5cbe-4e42-9114-d7b6904edb38",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n}"
+				},
+				"url": {
+					"raw": "localhost:12700/bookings",
+					"host": [
+						"localhost"
+					],
+					"port": "12700",
+					"path": [
+						"bookings"
+					]
+				},
+				"description": "Returns bookings based on the following criteria.\n\n\treservedBy:\t\t//optional (any name used to reserve)\n\tpolarRegion:\t//required (HAQ, SBQ)\n\tbrand:\t\t\t//required (HAL, SBN)\n\tenv:\t\t\t//required (TEST, PROD)"
+			},
+			"response": []
+		},
+		{
+			"name": "customer - GET - all (not reserved)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a8d4dfd-9be5-4759-8e5b-e05c4dff0cc4",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"brand\": \"HAL\",\n\t\"env\": \"QA\"\n}"
+				},
+				"url": {
+					"raw": "localhost:12700/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "12700",
+					"path": [
+						"customers"
+					]
+				},
+				"description": "Returns bookings based on the following criteria.\n\n\treservedBy:\t\t//optional (any name used to reserve)\n\tpolarRegion:\t//required (HAQ, SBQ)\n\tbrand:\t\t\t//required (HAL, SBN)\n\tenv:\t\t\t//required (TEST, PROD)"
+			},
+			"response": []
+		},
+		{
+			"name": "customer - GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a8d4dfd-9be5-4759-8e5b-e05c4dff0cc4",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n}"
+				},
+				"url": {
+					"raw": "localhost:12700/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "12700",
+					"path": [
+						"customers"
+					]
+				},
+				"description": "Returns bookings based on the following criteria.\n\n\treservedBy:\t\t//optional (any name used to reserve)\n\tpolarRegion:\t//required (HAQ, SBQ)\n\tbrand:\t\t\t//required (HAL, SBN)\n\tenv:\t\t\t//required (TEST, PROD)"
+			},
+			"response": []
+		},
+		{
+			"name": "booking - GET - reservedBy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2418d61b-9bb1-4785-8ed7-10fcb85ed38b",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"brand\": \"HAL\",\n\t\"polarRegion\": \"HAQ\",\n\t\"env\": \"TEST\",\n\t\"reservedBy\": \"jdmallorey\"\n}"
+				},
+				"url": {
+					"raw": "localhost:12700/bookings",
+					"host": [
+						"localhost"
+					],
+					"port": "12700",
+					"path": [
+						"bookings"
+					]
+				},
+				"description": "Returns bookings based on the following criteria.\n\n\treservedBy:\t\t//optional (any name used to reserve)\n\tpolarRegion:\t//required (HAQ, SBQ)\n\tbrand:\t\t\t//required (HAL, SBN)\n\tenv:\t\t\t//required (TEST, PROD)"
 			},
 			"response": []
 		},
@@ -45,8 +248,8 @@
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"value": "application/json"
 					}
 				],
 				"body": {
@@ -54,16 +257,48 @@
 					"raw": "{\n   \t\"dataClass\": \"booking\"\n}"
 				},
 				"url": {
-					"raw": "localhost:4321/data/5ca2f9263be211f80dc26670",
+					"raw": "localhost:12700/booking/5ca2f9263be211f80dc26670",
 					"host": [
 						"localhost"
 					],
-					"port": "4321",
+					"port": "12700",
 					"path": [
-						"data",
+						"booking",
 						"5ca2f9263be211f80dc26670"
 					]
-				}
+				},
+				"description": "Deletes an oject using the mongo object ID. Get the mongo object ID by using the GET, POST or PUT."
+			},
+			"response": []
+		},
+		{
+			"name": "customer - DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \t\"dataClass\": \"booking\"\n}"
+				},
+				"url": {
+					"raw": "localhost:12700/customer/5ca2f9263be211f80dc26670",
+					"host": [
+						"localhost"
+					],
+					"port": "12700",
+					"path": [
+						"customer",
+						"5ca2f9263be211f80dc26670"
+					]
+				},
+				"description": "Deletes an oject using the mongo object ID. Get the mongo object ID by using the GET, POST or PUT."
 			},
 			"response": []
 		},
@@ -81,16 +316,16 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \t\"dataClass\": \"booking\",\n\t\"reservedBy\": \"jdmallorey\",\n    \"bookingNumber\": \"ASASCV\",\n    \"lastName\": \"JOHNSON\",\n    \"polarRegion\": \"HAQ\",\n    \"brand\": \"HAL\",\n    \"env\": \"TEST\",\n    \"departureDate\": \"12/14/2020\",\n    \"email\": \"usr@test.com\",\n    \"password\": \"Test1234.\",\n    \"marinerId\": \"1234567890\",\n    \"occupancy\": \"2\",\n    \"loyalty\": \"gold\",\n    \"currency\": \"AUD\"\n}"
+					"raw": "{\n   \t\"dataClass\": \"booking\",\n    \"bookingNumber\": \"ASASCV\",\n    \"lastName\": \"JOHNSON\",\n    \"polarRegion\": \"HAQ\",\n    \"brand\": \"HAL\",\n    \"env\": \"TEST\",\n    \"departureDate\": \"12/14/2020\",\n    \"email\": \"usr@test.com\",\n    \"password\": \"Test1234.\",\n    \"marinerId\": \"1234567890\",\n    \"occupancy\": \"2\",\n    \"loyalty\": \"gold\",\n    \"currency\": \"AUD\"\n}"
 				},
 				"url": {
-					"raw": "localhost:4321/data/5cb2aaa86224077b3521b9f0",
+					"raw": "localhost:12700/booking/5cb2aaa86224077b3521b9f0",
 					"host": [
 						"localhost"
 					],
-					"port": "4321",
+					"port": "12700",
 					"path": [
-						"data",
+						"booking",
 						"5cb2aaa86224077b3521b9f0"
 					]
 				}
@@ -98,7 +333,68 @@
 			"response": []
 		},
 		{
-			"name": "booking - POST",
+			"name": "customer - PUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \t\"brand\": \"HAL\",\n\t\"env\": \"DEV\",\n\t\"firstName\": \"Johnny\",\n\t\"lastName\": \"LeMans\",\n\t\"middleName\": \"Semour\",\n\t\"address\": \"321 Test Ave N\",\n\t\"city\": \"Minneapolis\",\n\t\"state\": \"MN\",\n\t\"country\": \"US\",\n\t\"zipCode\": \"55021\",\n\t\"phone\": \"+11-235-4445\",\n\t\"email\": \"joh.lemans@test.com\",\n\t\"password\": \"Test123.\",\n\t\"marinerId\": \"123123123\",\n\t\"loyalty\": \"diamond\",\n\t\"birthDate\": \"1/22/1988\"\n}"
+				},
+				"url": {
+					"raw": "localhost:12700/customer/5cb2aaa86224077b3521b9f0",
+					"host": [
+						"localhost"
+					],
+					"port": "12700",
+					"path": [
+						"customer",
+						"5cb2aaa86224077b3521b9f0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "booking - PUT - reservedBy",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"reservedBy\": \"jdmallorey\",\n   \t\"dataClass\": \"booking\",\n    \"bookingNumber\": \"ASASCV\",\n    \"lastName\": \"JOHNSON\",\n    \"polarRegion\": \"HAQ\",\n    \"brand\": \"HAL\",\n    \"env\": \"TEST\",\n    \"departureDate\": \"12/14/2020\",\n    \"email\": \"usr@test.com\",\n    \"password\": \"Test1234.\",\n    \"marinerId\": \"1234567890\",\n    \"occupancy\": \"2\",\n    \"loyalty\": \"gold\",\n    \"currency\": \"AUD\"\n}"
+				},
+				"url": {
+					"raw": "localhost:12700/booking/5cb2aaa86224077b3521b9f0",
+					"host": [
+						"localhost"
+					],
+					"port": "12700",
+					"path": [
+						"booking",
+						"5cb2aaa86224077b3521b9f0"
+					]
+				},
+				"description": "Updated a data by reserving it with a name."
+			},
+			"response": []
+		},
+		{
+			"name": "booking - POST - hal",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -111,16 +407,133 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \t\"dataClass\": \"booking\",\n\t\"bookingNumber\": \"ASASXZ\",\n\t\"lastName\": \"JOHNSON\",\n\t\"polarRegion\": \"HAQ\",\n\t\"brand\": \"HAL\",\n\t\"env\": \"TEST\",\n\t\"departureDate\": \"11/14/2020\",\n\t\"email\": \"usr@test.com\",\n\t\"password\": \"Test1234.\",\n\t\"marinerId\": \"1234567890\",\n\t\"occupancy\": \"2\",\n\t\"loyalty\": \"gold\",\n\t\"currency\": \"AUD\"\n}"
+					"raw": "{\n   \t\"dataClass\": \"booking\",\n\t\"bookingNumber\": \"ASASXA\",\n\t\"lastName\": \"MOLLOY\",\n\t\"polarRegion\": \"HAQ\",\n\t\"brand\": \"HAL\",\n\t\"env\": \"TEST\",\n\t\"departureDate\": \"11/14/2020\",\n\t\"email\": \"usr@test.com\",\n\t\"password\": \"Test1234.\",\n\t\"marinerId\": \"1234567890\",\n\t\"occupancy\": \"2\",\n\t\"loyalty\": \"gold\",\n\t\"currency\": \"AUD\"\n}"
 				},
 				"url": {
-					"raw": "localhost:4321/data",
+					"raw": "localhost:12700/booking",
 					"host": [
 						"localhost"
 					],
-					"port": "4321",
+					"port": "12700",
 					"path": [
-						"data"
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "booking - POST - sbn",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \t\"dataClass\": \"booking\",\n\t\"bookingNumber\": \"ASASXZ\",\n\t\"lastName\": \"JOHNSON\",\n\t\"polarRegion\": \"SBQ\",\n\t\"brand\": \"SBN\",\n\t\"env\": \"TEST\",\n\t\"departureDate\": \"01/14/2020\",\n\t\"email\": \"sbn@test.com\",\n\t\"password\": \"Test1234.\",\n\t\"marinerId\": \"9876543221\",\n\t\"occupancy\": \"3\",\n\t\"loyalty\": \"diamond\",\n\t\"currency\": \"USD\"\n}"
+				},
+				"url": {
+					"raw": "localhost:12700/booking",
+					"host": [
+						"localhost"
+					],
+					"port": "12700",
+					"path": [
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "booking - POST - reservedBy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \t\"reservedBy\": \"jdmallorey\",\n\t\"dataClass\": \"booking\",\n\t\"bookingNumber\": \"ASASXZ\",\n\t\"lastName\": \"JOHNSON\",\n\t\"polarRegion\": \"HAQ\",\n\t\"brand\": \"HAL\",\n\t\"env\": \"TEST\",\n\t\"departureDate\": \"11/14/2020\",\n\t\"email\": \"usr@test.com\",\n\t\"password\": \"Test1234.\",\n\t\"marinerId\": \"1234567890\",\n\t\"occupancy\": \"2\",\n\t\"loyalty\": \"gold\",\n\t\"currency\": \"AUD\"\n}"
+				},
+				"url": {
+					"raw": "localhost:12700/booking",
+					"host": [
+						"localhost"
+					],
+					"port": "12700",
+					"path": [
+						"booking"
+					]
+				},
+				"description": "Create a new data object and reserve it with a name (reservedBy)"
+			},
+			"response": []
+		},
+		{
+			"name": "customer - POST  - reservedBy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \t\"reservedBy\": \"api_automation\",\n   \t\"brand\": \"SBN\",\n\t\"env\": \"STAGE\",\n\t\"firstName\": \"Chester\",\n\t\"lastName\": \"Reddy\",\n\t\"middleName\": \"Charles\",\n\t\"email\": \"chester.reddy@test.com\",\n\t\"password\": \"Test123.\",\n\t\"address\": \"123Test Ave N\",\n\t\"city\": \"Pullman\",\n\t\"state\": \"WA\",\n\t\"country\": \"US\",\n\t\"zipCode\": \"97666\",\n\t\"phone\": \"1-612-235-4445\",\n\t\"birthDate\": \"1/22/1988\",\n\t\"marinerId\": \"123123123\",\n\t\"loyalty\": \"silver\"\n}"
+				},
+				"url": {
+					"raw": "localhost:12700/customer",
+					"host": [
+						"localhost"
+					],
+					"port": "12700",
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer - POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \t\"brand\": \"HAL\",\n\t\"env\": \"QA\",\n\t\"firstName\": \"Johnny\",\n\t\"lastName\": \"LeMans\",\n\t\"middleName\": \"Semour\",\n\t\"address\": \"321 Test Ave N\",\n\t\"city\": \"Minneapolis\",\n\t\"state\": \"MN\",\n\t\"country\": \"US\",\n\t\"zipCode\": \"55021\",\n\t\"phone\": \"+11-235-4445\",\n\t\"email\": \"joh.lemans@test.com\",\n\t\"password\": \"Test123.\",\n\t\"marinerId\": \"123123123\",\n\t\"loyalty\": \"diamond\",\n\t\"birthDate\": \"1/22/1988\"\n}"
+				},
+				"url": {
+					"raw": "localhost:12700/customer",
+					"host": [
+						"localhost"
+					],
+					"port": "12700",
+					"path": [
+						"customer"
 					]
 				}
 			},

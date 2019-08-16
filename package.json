@@ -10,8 +10,8 @@
   "scripts": {
     "server": "nodemon server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Corey Molloy",
+  "license": "Apache",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
