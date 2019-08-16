@@ -8,9 +8,11 @@ An API interface for customers who need to consume test data.
 4. Run `$npm install`
 
 ### Starting the API Server
-Runs on http://localhost:12700
+To start the server, run the following command
 
     $npm run server
+
+The server runs on http://localhost:12700
 
 ### Mongo Database Setup
 This boilerplate uses mLab. A 3rd party Mongo host was used to setup and host the database. It's located at the

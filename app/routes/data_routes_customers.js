@@ -74,18 +74,22 @@ module.exports = function(app, db) {
         const details = { '_id': new ObjectID(id) };
         const data = {
             reservedBy: req.body.reservedBy,
-            bookingNumber: req.body.bookingNumber,
-            lastName: req.body.lastName,
-            polarRegion: req.body.polarRegion,
             brand: req.body.brand,
             env: req.body.env,
-            departureDate: req.body.departureDate,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            middleName: req.body.middleName,
+            address: req.body.address,
+            city: req.body.city,
+            state: req.body.state,
+            country: req.body.country,
+            zipCode: req.body.zipCode,
+            phone: req.body.phone,
             email: req.body.email,
             password: req.body.password,
             marinerId: req.body.marinerId,
-            occupancy: req.body.occupancy,
             loyalty: req.body.loyalty,
-            currency: req.body.currency
+            birthDate: req.body.birthDate
         };
         data.modifiedDate = new Date().toISOString();
         db.collection(mongoCollection).updateOne(details, data, (err, result) => {
