@@ -1,0 +1,59 @@
+version: "3"
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - "27017:27017"
+    networks:
+      - webnet
+
+  node:
+    image: "node:6-slim"
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/home/node/app
+    expose:
+      - "8081"
+    command: "npm start"
+    networks:
+      - webnet
+
+  web:
+    # replace username/repo:tag with your name and image details
+    image: caselletuckelle/testdatastore:beta
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+    ports:
+      - "12701:12701"
+    networks:
+      - webnet
+    command: "npm run server"
+
+  visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - webnet
+
+networks:
+  webnet:

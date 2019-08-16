@@ -1,0 +1,23 @@
+{
+  "name": "test-data-store",
+  "version": "1.0.0",
+  "description": "Node API for a test data store",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "server": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongodb": "^2.2.16"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
+  }
+}

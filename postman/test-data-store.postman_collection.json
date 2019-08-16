@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "50fe3ef0-ad60-44f4-92f9-b5a20b8075f7",
+		"name": "test-data-store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "booking - GET",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \t\"dataClass\": \"bookings\",\n\t\"brand\": \"HAL\",\n\t\"polarRegion\": \"HAQ\",\n\t\"env\": \"TEST\",\n\t\"reservedBy\": \"jdmallorey\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4321/data",
+					"host": [
+						"localhost"
+					],
+					"port": "4321",
+					"path": [
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "booking - DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \t\"dataClass\": \"booking\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4321/data/5ca2f9263be211f80dc26670",
+					"host": [
+						"localhost"
+					],
+					"port": "4321",
+					"path": [
+						"data",
+						"5ca2f9263be211f80dc26670"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "booking - PUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \t\"dataClass\": \"booking\",\n\t\"reservedBy\": \"jdmallorey\",\n    \"bookingNumber\": \"ASASCV\",\n    \"lastName\": \"JOHNSON\",\n    \"polarRegion\": \"HAQ\",\n    \"brand\": \"HAL\",\n    \"env\": \"TEST\",\n    \"departureDate\": \"12/14/2020\",\n    \"email\": \"usr@test.com\",\n    \"password\": \"Test1234.\",\n    \"marinerId\": \"1234567890\",\n    \"occupancy\": \"2\",\n    \"loyalty\": \"gold\",\n    \"currency\": \"AUD\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4321/data/5cb2aaa86224077b3521b9f0",
+					"host": [
+						"localhost"
+					],
+					"port": "4321",
+					"path": [
+						"data",
+						"5cb2aaa86224077b3521b9f0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "booking - POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \t\"dataClass\": \"booking\",\n\t\"bookingNumber\": \"ASASXZ\",\n\t\"lastName\": \"JOHNSON\",\n\t\"polarRegion\": \"HAQ\",\n\t\"brand\": \"HAL\",\n\t\"env\": \"TEST\",\n\t\"departureDate\": \"11/14/2020\",\n\t\"email\": \"usr@test.com\",\n\t\"password\": \"Test1234.\",\n\t\"marinerId\": \"1234567890\",\n\t\"occupancy\": \"2\",\n\t\"loyalty\": \"gold\",\n\t\"currency\": \"AUD\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4321/data",
+					"host": [
+						"localhost"
+					],
+					"port": "4321",
+					"path": [
+						"data"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
