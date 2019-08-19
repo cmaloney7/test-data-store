@@ -8,8 +8,11 @@ An API interface for customers who need to consume test data.
 4. Run `$npm install`
 5. Setup Mongo (see below)
 
-### Mongo Database Setup        
-Point to your mongo db URI and creds using the following config file: `./config/db.js`
+### Mongo Database Setup
+You'll have to setup your own Mongo database for this to work.
+Once you do, point to your mongo db URI and creds using the following config file: `./config/db.js`
+
+This is currently setup to connect to a mongo docker container.  This mongo container will spin up using the docker compose command below.
 
 ### Starting the API Server
 To start the server, run the following command
@@ -23,3 +26,18 @@ https://www.w3schools.com/nodejs/nodejs_mongodb.asp
 
 ### Postman Collection
 Import the following into postman for testing: `./postman/node-api-boiler.postman_collection.json`
+
+### Docker
+These commands should be used for creating a current container of this application and starting it and dependencies.
+ 
+To build a current container of this application
+        
+    $ docker build -t test-data-store:latest .
+       
+Once the above container is built, compose the entire application stack (mongo, node, test-data-store api)
+
+    $ docker-compose up
+
+Shut down application and dependant stack
+
+    $ docker-compose down
