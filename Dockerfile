@@ -10,11 +10,8 @@ COPY . /app
 # Install any needed packages specified in requirements.txt
 RUN npm install
 
-# Make port 12701 available to the world outside this container
-EXPOSE 12701
-
-# Define environment variable
-ENV NAME World
+# Make port 12700 available to the world outside this container
+EXPOSE 12700
 
 # Run app.py when the container launches
 CMD ["npm", "run", "server"]
