@@ -8,6 +8,7 @@ An API interface for customers who need to consume test data.
 4. Run the following command to start up api and dependant stack (node, mongo, etc.)
 
         $ bash docker.run.dev.sh
+5. Open the repo in your preferred IDE for further development
 
 ### Running Stand alone
 1. Install docker
