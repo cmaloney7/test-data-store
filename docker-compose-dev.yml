@@ -8,16 +8,11 @@ services:
   mongo:
     image: mongo:latest
     command: --serviceExecutor adaptive
-
     volumes:
       - mongo_data:/data/db
     restart: always
     ports:
        - 27017:27017
-#    environment:
-#      MONGO_INITDB_ROOT_USERNAME: root
-#      MONGO_INITDB_ROOT_PASSWORD: example
-#      MONGO_INITDB_DATABASE: testdatastore
     networks:
       - webnet
 
@@ -34,7 +29,7 @@ services:
 
   node:
     image: node:8-slim
-    user: "node"
+    user: node
     working_dir: /home/node/app
     environment:
       - NODE_ENV=production
@@ -47,9 +42,9 @@ services:
     networks:
       - webnet
 
-  api:
+  api_dev_env:
     # replace username/repo:tag with your name and image details
-    image: test-data-store:latest
+    image: test-data-store:dev
     ports:
       - "12700:12700"
     deploy:
@@ -60,6 +55,9 @@ services:
         limits:
           cpus: "0.1"
           memory: 50M
+    # volumes - mounted drive allows realtime development
+    volumes:
+      - ./:/app
     networks:
       - webnet
     command: "npm run server"
