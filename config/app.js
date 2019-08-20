@@ -3,7 +3,7 @@ module.exports = {
     // Example: mongodb://<dbuser>:<dbpassword>@ds121343.mlab.com:21343/<dbname>
     // mongoUrl : 'mongodb://localhost:27017/config',
     // mongoUrl : 'mongodb://root:example@mongo:27017/testdatastore',
-    // mongoUrl : 'mongodb://localhost:32780/testdatastore',   // local dev only using docker, Mongo container
+    // mongoUrl : 'mongodb://localhost:32768/testdatastore',   // local dev only using docker, Mongo container
     mongoUrl : 'mongodb://mongo:27017/testdatastore',    // use for regular use with docker compose (non-dev)
     mongoDb: 'testdatastore',
     hostname: '127.0.0.1',
