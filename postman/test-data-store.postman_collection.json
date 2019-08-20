@@ -36,7 +36,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"brand\": \"HAL\",\n\t\"polarRegion\": \"HAQ\",\n\t\"env\": \"TEST\"\n}"
+					"raw": "{\n\t\"brand\": \"SBN\",\n\t\"polarRegion\": \"SBQ\",\n\t\"env\": \"TEST\"\n}"
 				},
 				"url": {
 					"raw": "localhost:12700/bookings",
@@ -249,12 +249,13 @@
 						"key": "Content-Type",
 						"name": "Content-Type",
 						"type": "text",
-						"value": "application/json"
+						"value": "application/json",
+						"disabled": true
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \t\"dataClass\": \"booking\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "localhost:12700/booking/5ca2f9263be211f80dc26670",
@@ -407,7 +408,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \t\"dataClass\": \"booking\",\n\t\"bookingNumber\": \"ASASXA\",\n\t\"lastName\": \"MOLLOY\",\n\t\"polarRegion\": \"HAQ\",\n\t\"brand\": \"HAL\",\n\t\"env\": \"TEST\",\n\t\"departureDate\": \"11/14/2020\",\n\t\"email\": \"usr@test.com\",\n\t\"password\": \"Test1234.\",\n\t\"marinerId\": \"1234567890\",\n\t\"occupancy\": \"2\",\n\t\"loyalty\": \"gold\",\n\t\"currency\": \"AUD\"\n}"
+					"raw": "{\n\t\"bookingNumber\": \"DFECED\",\n\t\"lastName\": \"HALLEY\",\n\t\"polarRegion\": \"HAQ\",\n\t\"brand\": \"HAL\",\n\t\"env\": \"TEST\",\n\t\"departureDate\": \"11/14/2022\",\n\t\"email\": \"hal@test.com\",\n\t\"password\": \"Test1234.\",\n\t\"marinerId\": \"9876543221\",\n\t\"occupancy\": \"3\",\n\t\"loyalty\": \"club\",\n\t\"currency\": \"USD\"\n}"
 				},
 				"url": {
 					"raw": "localhost:12700/booking",
@@ -436,7 +437,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \t\"dataClass\": \"booking\",\n\t\"bookingNumber\": \"ASASXZ\",\n\t\"lastName\": \"JOHNSON\",\n\t\"polarRegion\": \"SBQ\",\n\t\"brand\": \"SBN\",\n\t\"env\": \"TEST\",\n\t\"departureDate\": \"01/14/2020\",\n\t\"email\": \"sbn@test.com\",\n\t\"password\": \"Test1234.\",\n\t\"marinerId\": \"9876543221\",\n\t\"occupancy\": \"3\",\n\t\"loyalty\": \"diamond\",\n\t\"currency\": \"USD\"\n}"
+					"raw": "{\n\t\"bookingNumber\": \"ASASXZ\",\n\t\"lastName\": \"JOHNSON\",\n\t\"polarRegion\": \"SBQ\",\n\t\"brand\": \"SBN\",\n\t\"env\": \"TEST\",\n\t\"departureDate\": \"01/14/2020\",\n\t\"email\": \"sbn@test.com\",\n\t\"password\": \"Test1234.\",\n\t\"marinerId\": \"9876543221\",\n\t\"occupancy\": \"3\",\n\t\"loyalty\": \"diamond\",\n\t\"currency\": \"USD\"\n}"
 				},
 				"url": {
 					"raw": "localhost:12700/booking",
@@ -465,7 +466,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \t\"reservedBy\": \"jdmallorey\",\n\t\"dataClass\": \"booking\",\n\t\"bookingNumber\": \"ASASXZ\",\n\t\"lastName\": \"JOHNSON\",\n\t\"polarRegion\": \"HAQ\",\n\t\"brand\": \"HAL\",\n\t\"env\": \"TEST\",\n\t\"departureDate\": \"11/14/2020\",\n\t\"email\": \"usr@test.com\",\n\t\"password\": \"Test1234.\",\n\t\"marinerId\": \"1234567890\",\n\t\"occupancy\": \"2\",\n\t\"loyalty\": \"gold\",\n\t\"currency\": \"AUD\"\n}"
+					"raw": "{\n   \t\"reservedBy\": \"jdmallorey\",\n\t\"bookingNumber\": \"ASASXZ\",\n\t\"lastName\": \"JOHNSON\",\n\t\"polarRegion\": \"HAQ\",\n\t\"brand\": \"HAL\",\n\t\"env\": \"TEST\",\n\t\"departureDate\": \"11/14/2020\",\n\t\"email\": \"usr@test.com\",\n\t\"password\": \"Test1234.\",\n\t\"marinerId\": \"1234567890\",\n\t\"occupancy\": \"2\",\n\t\"loyalty\": \"gold\",\n\t\"currency\": \"AUD\"\n}"
 				},
 				"url": {
 					"raw": "localhost:12700/booking",
