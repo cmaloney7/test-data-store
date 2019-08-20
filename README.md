@@ -23,7 +23,7 @@ The server runs on http://localhost:12700
 
 Swagger URL http://localhost:12700/api-docs
 
-Mongo Express localhost:8081
+Mongo Express http://localhost:8081
 
 ### Postman Collection
 Import the following into postman for testing: `./postman/node-api-boiler.postman_collection.json`
