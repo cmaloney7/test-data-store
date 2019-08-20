@@ -1,7 +1,9 @@
 # Test Data Store
 An API interface for customers who need to consume test data.
 
-### Running Stand alone
+### Running Stand Alone
+To start this api up and start using it, do the following.
+
 1. Install docker
 2. Clone the repo
 
@@ -18,6 +20,7 @@ An API interface for customers who need to consume test data.
 5. Access the API via the section below 'Using the API Server'
 
 ### Developer Setup
+To start this api up and continue development, do the following.
 1. Install docker
 2. Clone the repo
 
