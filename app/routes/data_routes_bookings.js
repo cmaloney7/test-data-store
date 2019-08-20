@@ -3,8 +3,50 @@ var ObjectID = require('mongodb').ObjectID;
 module.exports = function(app, db) {
 
     var mongoCollection = 'bookings';
+    /**
+     * @swagger
+     *
+     * definitions:
+     *   NewUser:
+     *     type: object
+     *     required:
+     *       - username
+     *       - password
+     *     properties:
+     *       username:
+     *         type: string
+     *       password:
+     *         type: string
+     *         format: password
+     *   User:
+     *     allOf:
+     *       - $ref: '#/definitions/NewUser'
+     *       - required:
+     *         - id
+     *       - properties:
+     *         id:
+     *           type: integer
+     *           format: int64
+     */
 
     // GET
+    /**
+     * @swagger
+     * /bookings:
+     *   get:
+     *     tag:
+     *       -booking
+     *     description: Returns booking data
+     *     produces:
+     *      - application/json
+     *     responses:
+     *       200:
+     *         description: OK
+     *         schema:
+     *           type: array
+     *           items:
+     *             $ref: '#/definitions/User'
+     */
     app.get('/bookings', (req, res) => {
         const data = {
             polarRegion: req.body.polarRegion,
