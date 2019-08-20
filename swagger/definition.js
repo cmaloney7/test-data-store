@@ -1,6 +1,10 @@
 module.exports = {
 
-    // http://www.acuriousanimal.com/2018/10/20/express-swagger-doc.html
+    // Source:  Express API with auto-generated OpenAPI doc through Swagger
+    //          http://www.acuriousanimal.com/2018/10/20/express-swagger-doc.html
+    //
+    // Swagger Editor: Use this help build Swagger definition YAML - https://editor.swagger.io/
+
     options: {
         swaggerDefinition: {
             // Like the one described here: https://swagger.io/specification/#infoObject
