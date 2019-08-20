@@ -1,7 +1,7 @@
 # Test Data Store
 An API interface for customers who need to consume test data.
 
-### Setup
+### Developer Setup
 1. Install NodeJS
 2. Clone the repo
 3. Change directory to the folder 'test-data-store'
@@ -10,7 +10,7 @@ An API interface for customers who need to consume test data.
 
 ### Mongo Database Setup
 You'll have to setup your own Mongo database for this to work.
-Once you do, point to your mongo db URI and creds using the following config file: `./config/db.js`
+Once you do, point to your mongo db URI and creds using the following config file: `./config/app.js`
 
 This is currently setup to connect to a mongo docker container.  This mongo container will spin up using the docker compose command below.
 
@@ -28,7 +28,12 @@ https://www.w3schools.com/nodejs/nodejs_mongodb.asp
 Import the following into postman for testing: `./postman/node-api-boiler.postman_collection.json`
 
 ### Docker
-These commands should be used for creating a current container of this application and starting it and dependencies.
+If you wish to just execute this application and use it, do the following:
+1. Install docker
+2. Clone the repo
+3. Change directory to the folder 'test-data-store'
+4. Run the following commands
+These commands should be used for creating a current container of this application and starting it and it's entire stack dependencies.
  
 To build a current container of this application
         
