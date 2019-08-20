@@ -21,6 +21,8 @@ To start the server, run the following command
 
 The server runs on http://localhost:12700
 
+Swagger URL http://localhost:12700/api-docs
+
 ### Mongo Reference
 https://www.w3schools.com/nodejs/nodejs_mongodb.asp
 
