@@ -68,7 +68,7 @@ module.exports = function(app, db) {
         });
     });
 
-    //PUT - booking
+    // PUT
     app.put('/customer/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
@@ -103,7 +103,7 @@ module.exports = function(app, db) {
         });
     });
 
-    // DELETE booking
+    // DELETE
     app.delete('/customer/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
