@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+# build latest app container
+docker build -t test-data-store:latest .
+
 # login to docker hub
 echo logging into to docker hub...
 docker login --username caselletuckelle
