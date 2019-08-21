@@ -33,7 +33,7 @@ services:
       - webnet
 
   node:
-    image: node:8-slim
+    image: node:8-alpine
     user: "node"
     working_dir: /home/node/app
     environment:
