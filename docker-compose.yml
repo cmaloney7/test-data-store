@@ -49,6 +49,7 @@ services:
 
   api:
     # replace username/repo:tag with your name and image details
+    # https://hub.docker.com/r/caselletuckelle/test-data-store
     image: caselletuckelle/test-data-store:latest
     ports:
       - "12700:12700"
