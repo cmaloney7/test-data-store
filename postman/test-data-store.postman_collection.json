@@ -21,9 +21,6 @@
 					}
 				}
 			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -34,18 +31,33 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"brand\": \"SBN\",\n\t\"polarRegion\": \"SBQ\",\n\t\"env\": \"TEST\"\n}"
-				},
 				"url": {
-					"raw": "localhost:12700/bookings",
+					"raw": "localhost:12700/bookings?polarRegion=HAQ&brand=HAL&env=TEST",
 					"host": [
 						"localhost"
 					],
 					"port": "12700",
 					"path": [
 						"bookings"
+					],
+					"query": [
+						{
+							"key": "polarRegion",
+							"value": "HAQ"
+						},
+						{
+							"key": "brand",
+							"value": "HAL"
+						},
+						{
+							"key": "env",
+							"value": "TEST"
+						},
+						{
+							"key": "reservedBy",
+							"value": "jdmallorey",
+							"disabled": true
+						}
 					]
 				},
 				"description": "Returns bookings based on the following criteria.\n\n\treservedBy:\t\t//optional (any name used to reserve)\n\tpolarRegion:\t//required (HAQ, SBQ)\n\tbrand:\t\t\t//required (HAL, SBN)\n\tenv:\t\t\t//required (TEST, PROD)"
@@ -53,54 +65,7 @@
 			"response": []
 		},
 		{
-			"name": "booking - GET - all (not reserved)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "4f5aa54a-5cbe-4e42-9114-d7b6904edb38",
-						"exec": [
-							"pm.test(\"response is ok\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n}"
-				},
-				"url": {
-					"raw": "localhost:12700/bookings",
-					"host": [
-						"localhost"
-					],
-					"port": "12700",
-					"path": [
-						"bookings"
-					]
-				},
-				"description": "Returns bookings based on the following criteria.\n\n\treservedBy:\t\t//optional (any name used to reserve)\n\tpolarRegion:\t//required (HAQ, SBQ)\n\tbrand:\t\t\t//required (HAL, SBN)\n\tenv:\t\t\t//required (TEST, PROD)"
-			},
-			"response": []
-		},
-		{
-			"name": "customer - GET - all (not reserved)",
+			"name": "customer - GET - rerervedBy",
 			"event": [
 				{
 					"listen": "test",
@@ -115,9 +80,6 @@
 					}
 				}
 			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -128,18 +90,28 @@
 						"value": "application/json"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"brand\": \"HAL\",\n\t\"env\": \"QA\"\n}"
-				},
 				"url": {
-					"raw": "localhost:12700/customers",
+					"raw": "localhost:12700/customers?brand=SBN&env=STAGE&reservedBy=api_automation",
 					"host": [
 						"localhost"
 					],
 					"port": "12700",
 					"path": [
 						"customers"
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "SBN"
+						},
+						{
+							"key": "env",
+							"value": "STAGE"
+						},
+						{
+							"key": "reservedBy",
+							"value": "api_automation"
+						}
 					]
 				},
 				"description": "Returns bookings based on the following criteria.\n\n\treservedBy:\t\t//optional (any name used to reserve)\n\tpolarRegion:\t//required (HAQ, SBQ)\n\tbrand:\t\t\t//required (HAL, SBN)\n\tenv:\t\t\t//required (TEST, PROD)"
@@ -162,9 +134,6 @@
 					}
 				}
 			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -175,18 +144,29 @@
 						"value": "application/json"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n}"
-				},
 				"url": {
-					"raw": "localhost:12700/customers",
+					"raw": "localhost:12700/customers?brand=HAL&env=QA",
 					"host": [
 						"localhost"
 					],
 					"port": "12700",
 					"path": [
 						"customers"
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "HAL"
+						},
+						{
+							"key": "env",
+							"value": "QA"
+						},
+						{
+							"key": "reservedBy",
+							"value": "api_automation",
+							"disabled": true
+						}
 					]
 				},
 				"description": "Returns bookings based on the following criteria.\n\n\treservedBy:\t\t//optional (any name used to reserve)\n\tpolarRegion:\t//required (HAQ, SBQ)\n\tbrand:\t\t\t//required (HAL, SBN)\n\tenv:\t\t\t//required (TEST, PROD)"
@@ -209,9 +189,6 @@
 					}
 				}
 			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -222,18 +199,32 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"brand\": \"HAL\",\n\t\"polarRegion\": \"HAQ\",\n\t\"env\": \"TEST\",\n\t\"reservedBy\": \"jdmallorey\"\n}"
-				},
 				"url": {
-					"raw": "localhost:12700/bookings",
+					"raw": "localhost:12700/bookings?polarRegion=HAQ&brand=HAL&env=TEST&reservedBy=jdmallorey",
 					"host": [
 						"localhost"
 					],
 					"port": "12700",
 					"path": [
 						"bookings"
+					],
+					"query": [
+						{
+							"key": "polarRegion",
+							"value": "HAQ"
+						},
+						{
+							"key": "brand",
+							"value": "HAL"
+						},
+						{
+							"key": "env",
+							"value": "TEST"
+						},
+						{
+							"key": "reservedBy",
+							"value": "jdmallorey"
+						}
 					]
 				},
 				"description": "Returns bookings based on the following criteria.\n\n\treservedBy:\t\t//optional (any name used to reserve)\n\tpolarRegion:\t//required (HAQ, SBQ)\n\tbrand:\t\t\t//required (HAL, SBN)\n\tenv:\t\t\t//required (TEST, PROD)"
