@@ -49,10 +49,10 @@ module.exports = function(app, db) {
      */
     app.get('/bookings', (req, res) => {
         const data = {
-            polarRegion: req.body.polarRegion,
-            brand: req.body.brand,
-            env: req.body.env,
-            reservedBy: req.body.reservedBy    //optional
+            polarRegion: req.query.polarRegion,
+            brand: req.query.brand,
+            env: req.query.env,
+            reservedBy: req.query.reservedBy    //optional
         };
 
         // set reservedBy to null if not passed in JSON request. This will prevent reserved data from being returned.
