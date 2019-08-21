@@ -21,7 +21,9 @@ To start this api up and start using it, do the following.
 
 ### Developer Setup
 To start this api up and continue development, do the following.
-1. Install docker
+1. Install Docker Desktop on your local machine
+    https://docs.docker.com/docker-for-windows/install/
+
 2. Clone the repo
 
         $ git clone https://github.com/cmaloney7/test-data-store.git

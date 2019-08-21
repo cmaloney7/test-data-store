@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM node:8-slim
+FROM node:8-alpine
 
 # Set the working directory to /app
 WORKDIR /app
