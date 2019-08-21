@@ -34,7 +34,6 @@ To start this api up and continue development, do the following.
 
         $ bash docker.run.dev.sh
 5. Open the repo in your preferred IDE for further development
-
         
 ### Using the API Server
 The server runs on http://localhost:12700
@@ -46,3 +45,7 @@ Mongo Express http://localhost:8081
 ### Postman Collection
 Import the following into postman for use and/or testing: `./postman/node-api-boiler.postman_collection.json`
 
+### Shutdown
+To stop the application and tear down the stack dependencies, run the following command
+
+        $ docker-compose down
