@@ -5,6 +5,10 @@ An API interface for customers who need to consume test data.
 To start this api up and start using it, do the following.
 
 1. Install docker
+
+        Mac - https://docs.docker.com/docker-for-mac/install/
+        Windows - https://docs.docker.com/docker-for-windows/install/
+        
 2. Clone the repo
 
         $ git clone https://github.com/cmaloney7/test-data-store.git
