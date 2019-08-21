@@ -49,7 +49,7 @@ services:
 
   api:
     # replace username/repo:tag with your name and image details
-    image: test-data-store:latest
+    image: caselletuckelle/test-data-store:latest
     ports:
       - "12700:12700"
     deploy:
