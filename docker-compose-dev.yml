@@ -1,8 +1,5 @@
 version: '3.1'
 
-volumes:
-  mongo_data:
-
 services:
 
   mongo:
@@ -13,11 +10,17 @@ services:
     restart: always
     ports:
        - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: testdatastore
     networks:
       - webnet
 
   mongo-express:
     image: mongo-express
+    depends_on:
+      - mongo
     restart: always
     ports:
       - 8081:8081
@@ -45,6 +48,9 @@ services:
   api_dev_env:
     # replace username/repo:tag with your name and image details
     image: test-data-store:dev
+    depends_on:
+      - node
+      - mongo
     ports:
       - "12700:12700"
     deploy:
@@ -64,3 +70,6 @@ services:
 
 networks:
   webnet:
+
+volumes:
+  mongo_data:

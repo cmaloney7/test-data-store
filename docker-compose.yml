@@ -1,23 +1,19 @@
 version: '3.1'
 
-volumes:
-  mongo_data:
-
 services:
 
   mongo:
     image: mongo:latest
     command: --serviceExecutor adaptive
-
     volumes:
       - mongo_data:/data/db
     restart: always
     ports:
        - 27017:27017
-#    environment:
-#      MONGO_INITDB_ROOT_USERNAME: root
-#      MONGO_INITDB_ROOT_PASSWORD: example
-#      MONGO_INITDB_DATABASE: testdatastore
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: testdatastore
     networks:
       - webnet
 
@@ -40,6 +36,9 @@ services:
     # replace username/repo:tag with your name and image details
     # https://hub.docker.com/r/caselletuckelle/test-data-store
     image: caselletuckelle/test-data-store:latest
+    depends_on:
+      - node
+      - mongo
     ports:
       - "12700:12700"
     deploy:
@@ -56,3 +55,6 @@ services:
 
 networks:
   webnet:
+
+volumes:
+  mongo_data:
