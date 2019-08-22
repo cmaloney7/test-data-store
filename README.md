@@ -50,7 +50,14 @@ When you are done using the development containers, stop them by running the fol
 
         $ bash docker.stop.dev.sh
 
-        
+### Push to Docker Repo
+When you are finished with new development, you may want to update the production image to the public Docker repo.  
+To create a new image and publish, run the following bash script.  
+Note, you'll need to know the password for the Docker repo to complete this.  
+Also, this process can be automated in your CI/CD pipeline.
+
+        $ bash docker.push.sh
+     
 ### Using the API Server
 The server runs on http://localhost:12700
 
