@@ -53,11 +53,11 @@ Also, this process can be automated in your CI/CD pipeline._
         $ bash docker.push.sh
      
 ### Using the API Server
-The server runs on _http://localhost:12700_
+test-data-store URL - _http://localhost:12700_
 
-Swagger URL _http://localhost:12700/api-docs_
+Swagger URL - _http://localhost:12700/api-docs_
 
-Mongo Express _http://localhost:8081_ _(Note, mongo-express should only be used privately for development purposes.  That being said, it is only available when using Developer Setup)_
+Mongo Express URL - _http://localhost:8081_ _(Note, mongo-express should only be used privately for development purposes.  That being said, it is only available when using Developer Setup)_
 
 ### Postman Collection
 Import the following into postman for use and/or testing: `./postman/node-api-boiler.postman_collection.json`
