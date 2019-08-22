@@ -6,6 +6,7 @@ services:
     image: mongo:latest
     command: --serviceExecutor adaptive
     volumes:
+      # allows mongo data to persist regardless of container state
       - mongo_data:/data/db
     restart: always
     ports:

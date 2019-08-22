@@ -3,7 +3,7 @@
 # tear down any existing containers
 docker-compose down
 
-# build development app container
+# build local-only use development container
 docker build -t test-data-store:dev .
 
 # start up container stack

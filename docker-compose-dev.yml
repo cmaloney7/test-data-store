@@ -6,6 +6,7 @@ services:
     image: mongo:latest
     command: --serviceExecutor adaptive
     volumes:
+      # allows mongo data to persist regardless of container state
       - mongo_data:/data/db
     restart: always
     ports:
@@ -46,7 +47,7 @@ services:
       - webnet
 
   api_dev_env:
-    # replace username/repo:tag with your name and image details
+    # image will only be created and run for development use locally
     image: test-data-store:dev
     depends_on:
       - node
@@ -61,8 +62,8 @@ services:
         limits:
           cpus: "0.1"
           memory: 50M
-    # volumes - mounted drive allows realtime development
     volumes:
+      # mounted drive allows realtime development to app code base
       - ./:/app
     networks:
       - webnet
