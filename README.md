@@ -46,17 +46,18 @@ When you are done using the development containers, stop them by running the fol
 ### Push to Docker Repo
 When you are finished with new development, you may want to update the production image to the public Docker repo.  
 To create a new image and publish, run the following bash script.  
-Note, you'll need to know the password for the Docker repo to complete this.  
-Also, this process can be automated in your CI/CD pipeline.
+
+_Note, you'll need to know the password for the Docker repo to complete this.  
+Also, this process can be automated in your CI/CD pipeline._
 
         $ bash docker.push.sh
      
 ### Using the API Server
-The server runs on http://localhost:12700
+The server runs on _http://localhost:12700_
 
-Swagger URL http://localhost:12700/api-docs
+Swagger URL _http://localhost:12700/api-docs_
 
-Mongo Express http://localhost:8081 _(Note, mongo-express should only be used privately for development purposes.  That being said, it is only available when using Developer Setup)_
+Mongo Express _http://localhost:8081_ _(Note, mongo-express should only be used privately for development purposes.  That being said, it is only available when using Developer Setup)_
 
 ### Postman Collection
 Import the following into postman for use and/or testing: `./postman/node-api-boiler.postman_collection.json`
