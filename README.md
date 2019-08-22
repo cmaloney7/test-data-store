@@ -56,7 +56,7 @@ The server runs on http://localhost:12700
 
 Swagger URL http://localhost:12700/api-docs
 
-Mongo Express http://localhost:8081 (Note, mongo-express should only be used privately for development purposes.  That being said, it is only available when using Developer Setup)
+Mongo Express http://localhost:8081 _(Note, mongo-express should only be used privately for development purposes.  That being said, it is only available when using Developer Setup)_
 
 ### Postman Collection
 Import the following into postman for use and/or testing: `./postman/node-api-boiler.postman_collection.json`
