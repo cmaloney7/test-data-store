@@ -1,10 +1,10 @@
 # Test Data Store
 An API interface for customers who need to consume test data.
 
-### Running Stand Alone
-To start this api up and start using it, do the following. Note, this is for API use only and not development.
+### Setup
+1. Install Docker
 
-1. Prerequisite: Install Docker
+        https://docs.docker.com/install/
         
 2. Clone the repo
 
@@ -14,38 +14,31 @@ To start this api up and start using it, do the following. Note, this is for API
 
         $ cd test-data-store
         
-4. Run the following command to start up api and dependant stack (node, mongo, etc.)
+### Running Stand Alone
+To start this api up and start using it, do the following. Note, this is for API use only and not development.
+
+1. Run the following command to start up api and dependant stack (node, mongo and test-data-store API)
 
         $ bash docker.start.sh
         
-5. Access the API and Swagger page via the section below 'Using the API Server' or use the Postman collection.
+2. The test-data-store API should now be running.  Access the API and Swagger page via the section below 'Using the API 
+Server' or use the Postman collection.
 
-When you are done using the development containers, stop them by running the following bash script.
+#### Stopping the test-data-store
+When you are done using the api, stop the container by running the following bash script.
 
         $ bash docker.stop.sh
 
 ### Developer Setup
 To start this api up and continue development, do the following.
-
-1. Prerequisite: Install Docker Desktop on your local machine
         
-        Mac - https://docs.docker.com/docker-for-mac/install/
-        Windows - https://docs.docker.com/docker-for-windows/install/
-        
-2. Clone the repo
-
-        $ git clone https://github.com/cmaloney7/test-data-store.git
-
-3. Change directory to the folder 'test-data-store'
-
-        $ cd test-data-store
-        
-4. Run the following command to start up api and dependant stack (node, mongo, etc.)
+1. Run the following command to start up api and dependant stack (node, mongo, mongo-express and test-data-store API)
 
         $ bash docker.start.dev.sh
         
-5. Open the repo in your preferred IDE for further development, git management, testing, etc.
+2. The test-data-store API should now be running.  Open the repo in your preferred IDE for further development, git management, testing, etc.
 
+#### Stopping the development version of the test-data-store
 When you are done using the development containers, stop them by running the following bash script.
 
         $ bash docker.stop.dev.sh
