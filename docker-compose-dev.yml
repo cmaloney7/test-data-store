@@ -1,23 +1,27 @@
 version: '3.1'
 
-volumes:
-  mongo_data:
-
 services:
 
   mongo:
     image: mongo:latest
     command: --serviceExecutor adaptive
     volumes:
+      # allows mongo data to persist regardless of container state
       - mongo_data:/data/db
     restart: always
     ports:
        - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: testdatastore
     networks:
       - webnet
 
   mongo-express:
     image: mongo-express
+    depends_on:
+      - mongo
     restart: always
     ports:
       - 8081:8081
@@ -43,8 +47,11 @@ services:
       - webnet
 
   api_dev_env:
-    # replace username/repo:tag with your name and image details
+    # image will only be created and run for development use locally
     image: test-data-store:dev
+    depends_on:
+      - node
+      - mongo
     ports:
       - "12700:12700"
     deploy:
@@ -55,8 +62,8 @@ services:
         limits:
           cpus: "0.1"
           memory: 50M
-    # volumes - mounted drive allows realtime development
     volumes:
+      # mounted drive allows realtime development to app code base
       - ./:/app
     networks:
       - webnet
@@ -64,3 +71,6 @@ services:
 
 networks:
   webnet:
+
+volumes:
+  mongo_data:
