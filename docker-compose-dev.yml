@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.7'
 
 services:
 
@@ -12,8 +12,6 @@ services:
     ports:
        - 27017:27017
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
       MONGO_INITDB_DATABASE: testdatastore
     networks:
       - webnet
@@ -46,7 +44,7 @@ services:
     networks:
       - webnet
 
-  api_dev_env:
+  api:
     # image will only be created and run for development use locally
     image: test-data-store:dev
     depends_on:
