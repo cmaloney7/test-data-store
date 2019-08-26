@@ -32,7 +32,11 @@ When you are done using the api, stop the container by running the following bas
 ### Developer Setup
 To start this api up and continue development, do the following.
         
-1. Run the following command to start up api and dependant stack (node, mongo, mongo-express and test-data-store API)
+1. Install node modules
+        
+        $ npm install
+
+2. Run the following command to start up api and dependant stack (node, mongo, mongo-express and test-data-store API)
 
         $ bash docker.start.dev.sh
         
