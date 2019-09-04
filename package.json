@@ -16,7 +16,6 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongodb": "^2.2.16",
-    "swagger-jsdoc": "^3.4.0",
     "swagger-ui-express": "^4.0.7"
   },
   "devDependencies": {
