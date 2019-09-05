@@ -2,55 +2,8 @@ var ObjectID = require("mongodb").ObjectID;
 
 module.exports = function(app, db) {
   var mongoCollection = "bookings";
-  /**
-   * @swagger
-   * definitions:
-   *   NewUser:
-   *     type: object
-   *     required:
-   *       - username
-   *       - password
-   *     properties:
-   *       username:
-   *         type: string
-   *       password:
-   *         type: string
-   *         format: password
-   *   User:
-   *     allOf:
-   *       - $ref: '#/definitions/NewUser'
-   *       - required:
-   *         - id
-   *       - properties:
-   *         id:
-   *           type: integer
-   *           format: int64
-   */
 
   // GET
-  /**
-   * @swagger
-   *
-   *  paths:
-   *    /bookings:
-   *        get:
-   *        tags:
-   *            - bookings
-   *        summary: Returns bookings
-   *        description: Returns bookings based on search critera
-   *        operationId: getBookings
-   *        consumes:
-   *          - application/json
-   *        produces:
-   *          - application/json
-   *        parameters:
-   *            name: body
-   *            description: Booking data to be added to the store
-   *            required: true
-   *        responses:
-   *          '200':
-   *            description: OK
-   */
   app.get("/bookings", (req, res) => {
     const data = {
       polarRegion: req.query.polarRegion,
