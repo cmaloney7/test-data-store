@@ -13,12 +13,12 @@
     "url" : "http://localhost:12700"
   } ],
   "paths" : {
-    "/booking/{objId}" : {
+    "/booking/{objIdA}" : {
       "put" : {
         "description" : "Update existing booking record",
         "parameters": [
           {
-            "name": "objId",
+            "name": "objIdA",
             "in": "path",
             "description": "ID of mongo record to updates",
             "required": true,
@@ -104,12 +104,12 @@
         "url" : "http://localhost:12700"
       } ]
     },
-    "/customer/{objId}" : {
+    "/customer/{objIdC}" : {
       "put" : {
         "description" : "Update existing customer record",
         "parameters": [
           {
-            "name": "objId",
+            "name": "objIdC",
             "in": "path",
             "description": "ID of mongo record to update",
             "required": true,
@@ -287,23 +287,22 @@
         "url" : "http://localhost:12700"
       } ]
     },
-    "/customer/{id}" : {
+    "/customer/{objIdD}" : {
       "delete" : {
+        "description" : "Remove existing customer record",
+        "parameters": [
+          {
+            "name": "objIdD",
+            "in": "path",
+            "description": "ID of customer mongo record to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses" : {
           "200" : {
-            "description" : "Remove existing booking record",
-            "parameters": [
-              {
-                "name": "id",
-                "in": "path",
-                "description": "ID of mongo record to delete",
-                "required": true,
-                "schema": {
-                  "type": "integer",
-                  "format": "int64"
-                }
-              }
-            ],
             "content" : {
               "text/html; charset=utf-8" : {
                 "schema" : {
@@ -370,24 +369,23 @@
         "url" : "http://localhost:12700"
       } ]
     },
-    "/booking/{id}" : {
+    "/booking/{objIdB}" : {
       "delete" : {
-        "description" : "Remove existing customer record",
+        "description" : "Remove existing booking record",
         "parameters": [
           {
-            "name": "id",
+            "name": "objIdB",
             "in": "path",
-            "description": "ID of mongo record to update",
+            "description": "ID of mongo record to delete",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
         "responses" : {
           "200" : {
-            "description" : "Auto generated using Swagger Inspector",
+            "description" : "OK",
             "content" : {
               "text/html; charset=utf-8" : {
                 "schema" : {
