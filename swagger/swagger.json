@@ -3,15 +3,18 @@
   "info" : {
     "title" : "test-data-store",
     "description" : "An API interface for customers who need to consume test data. ",
-    "version" : "0.1",
+    "version" : "1.0",
     "license" : {
       "url" : "http://www.apache.org/licenses/",
       "name" : "Apache License v2.0"
     }
   },
-  "servers" : [ {
-    "url" : "http://localhost:12700"
-  } ],
+  "servers" : [
+    {
+      "url" : "http://localhost:12700",
+      "description": "Local server"
+    }
+  ],
   "paths" : {
     "/booking/{objIdA}" : {
       "put" : {
@@ -75,8 +78,11 @@
                 }
               },
               "examples" : {
-                "0" : {
-                  "value" : "{\n\t\"reservedBy\": \"jdmallorey\",\n    \"bookingNumber\": \"ASASCV\",\n    \"lastName\": \"JOHNSON\",\n    \"polarRegion\": \"HAQ\",\n    \"brand\": \"HAL\",\n    \"env\": \"TEST\",\n    \"departureDate\": \"12/14/2020\",\n    \"email\": \"usr@test.com\",\n    \"password\": \"Test1234.\",\n    \"marinerId\": \"1234567890\",\n    \"occupancy\": \"2\",\n    \"loyalty\": \"gold\",\n    \"currency\": \"AUD\"\n}"
+                "open" : {
+                  "value" : "{\n    \"bookingNumber\": \"ASASCV\",\n    \"lastName\": \"JOHNSON\",\n    \"polarRegion\": \"HAQ\",\n    \"brand\": \"HAL\",\n    \"env\": \"TEST\",\n    \"departureDate\": \"12/14/2020\",\n    \"email\": \"usr@test.com\",\n    \"password\": \"Test1234.\",\n    \"marinerId\": \"1234567890\",\n    \"occupancy\": \"2\",\n    \"loyalty\": \"gold\",\n    \"currency\": \"AUD\"\n}"
+                },
+                "reserved" : {
+                  "value" : "{\n    \"reservedBy\": \"jdmallorey\",\n    \"bookingNumber\": \"ASASCV\",\n    \"lastName\": \"JOHNSON\",\n    \"polarRegion\": \"HAQ\",\n    \"brand\": \"HAL\",\n    \"env\": \"TEST\",\n    \"departureDate\": \"12/14/2020\",\n    \"email\": \"usr@test.com\",\n    \"password\": \"Test1234.\",\n    \"marinerId\": \"1234567890\",\n    \"occupancy\": \"2\",\n    \"loyalty\": \"gold\",\n    \"currency\": \"AUD\"\n}"
                 }
               }
             }
@@ -84,7 +90,7 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Auto generated using Swagger Inspector",
+            "description" : "OK",
             "content" : {
               "application/json; charset=utf-8" : {
                 "schema" : {
@@ -178,8 +184,11 @@
                 }
               },
               "examples" : {
-                "0" : {
-                  "value" : "{\n   \t\"reservedBy\": \"api_automation\",\n   \t\"brand\": \"SBN\",\n\t\"env\": \"STAGE\",\n\t\"firstName\": \"Chester\",\n\t\"lastName\": \"Reddy\",\n\t\"middleName\": \"Charles\",\n\t\"email\": \"chester.reddy@test.com\",\n\t\"password\": \"Test123.\",\n\t\"address\": \"123Test Ave N\",\n\t\"city\": \"Pullman\",\n\t\"state\": \"WA\",\n\t\"country\": \"US\",\n\t\"zipCode\": \"97666\",\n\t\"phone\": \"1-612-235-4445\",\n\t\"birthDate\": \"1/22/1988\",\n\t\"marinerId\": \"123123123\",\n\t\"loyalty\": \"silver\"\n}"
+                "open" : {
+                  "value" : "{\n    \t\"brand\": \"SBN\",\n\t\"env\": \"STAGE\",\n\t\"firstName\": \"Chester\",\n\t\"lastName\": \"Reddy\",\n\t\"middleName\": \"Charles\",\n\t\"email\": \"chester.reddy@test.com\",\n\t\"password\": \"Test123.\",\n\t\"address\": \"123Test Ave N\",\n\t\"city\": \"Pullman\",\n\t\"state\": \"WA\",\n\t\"country\": \"US\",\n\t\"zipCode\": \"97666\",\n\t\"phone\": \"1-612-235-4445\",\n\t\"birthDate\": \"1/22/1988\",\n\t\"marinerId\": \"123123123\",\n\t\"loyalty\": \"silver\"\n}"
+                },
+                "reserved" : {
+                  "value" : "{\n    \t\"reservedBy\": \"api_automation\",\n   \t\"brand\": \"SBN\",\n\t\"env\": \"STAGE\",\n\t\"firstName\": \"Chester\",\n\t\"lastName\": \"Reddy\",\n\t\"middleName\": \"Charles\",\n\t\"email\": \"chester.reddy@test.com\",\n\t\"password\": \"Test123.\",\n\t\"address\": \"123Test Ave N\",\n\t\"city\": \"Pullman\",\n\t\"state\": \"WA\",\n\t\"country\": \"US\",\n\t\"zipCode\": \"97666\",\n\t\"phone\": \"1-612-235-4445\",\n\t\"birthDate\": \"1/22/1988\",\n\t\"marinerId\": \"123123123\",\n\t\"loyalty\": \"silver\"\n}"
                 }
               }
             }
@@ -187,7 +196,7 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Auto generated using Swagger Inspector",
+            "description" : "OK",
             "content" : {
               "application/json; charset=utf-8" : {
                 "schema" : {
@@ -209,7 +218,7 @@
     },
     "/booking" : {
       "post" : {
-        "description" : "Auto generated using Swagger Inspector",
+        "description" : "Add new booking record to data store",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -258,7 +267,10 @@
                 }
               },
               "examples" : {
-                "0" : {
+                "open" : {
+                  "value" : "{\n   \t\"bookingNumber\": \"ASASXZ\",\n\t\"lastName\": \"JOHNSON\",\n\t\"polarRegion\": \"HAQ\",\n\t\"brand\": \"HAL\",\n\t\"env\": \"TEST\",\n\t\"departureDate\": \"11/14/2020\",\n\t\"email\": \"usr@test.com\",\n\t\"password\": \"Test1234.\",\n\t\"marinerId\": \"1234567890\",\n\t\"occupancy\": \"2\",\n\t\"loyalty\": \"gold\",\n\t\"currency\": \"AUD\"\n}"
+                },
+                "reserved" : {
                   "value" : "{\n   \t\"reservedBy\": \"jdmallorey\",\n\t\"bookingNumber\": \"ASASXZ\",\n\t\"lastName\": \"JOHNSON\",\n\t\"polarRegion\": \"HAQ\",\n\t\"brand\": \"HAL\",\n\t\"env\": \"TEST\",\n\t\"departureDate\": \"11/14/2020\",\n\t\"email\": \"usr@test.com\",\n\t\"password\": \"Test1234.\",\n\t\"marinerId\": \"1234567890\",\n\t\"occupancy\": \"2\",\n\t\"loyalty\": \"gold\",\n\t\"currency\": \"AUD\"\n}"
                 }
               }
@@ -267,7 +279,7 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Auto generated using Swagger Inspector",
+            "description" : "OK",
             "content" : {
               "application/json; charset=utf-8" : {
                 "schema" : {
@@ -324,7 +336,7 @@
     },
     "/customers" : {
       "get" : {
-        "description" : "Auto generated using Swagger Inspector",
+        "description" : "Fetch customer data based on specified criteria",
         "parameters" : [ {
           "name" : "reservedBy",
           "in" : "query",
@@ -335,21 +347,35 @@
         }, {
           "name" : "env",
           "in" : "query",
+          "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "enum": [
+              "DEV",
+              "QA",
+              "STAGE",
+              "PROD"
+            ]
           },
           "example" : "STAGE"
-        }, {
+        },
+          {
           "name" : "brand",
           "in" : "query",
+          "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "enum": [
+              "HAL",
+              "SBN",
+              "CUN"
+            ]
           },
           "example" : "SBN"
         } ],
         "responses" : {
           "200" : {
-            "description" : "Auto generated using Swagger Inspector",
+            "description" : "OK",
             "content" : {
               "application/json; charset=utf-8" : {
                 "schema" : {
@@ -407,7 +433,7 @@
     },
     "/customer" : {
       "post" : {
-        "description" : "Auto generated using Swagger Inspector",
+        "description" : "Add new customer to data store",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -468,7 +494,10 @@
                 }
               },
               "examples" : {
-                "0" : {
+                "open" : {
+                  "value" : "{\n   \t\"brand\": \"SBN\",\n\t\"env\": \"STAGE\",\n\t\"firstName\": \"Chester\",\n\t\"lastName\": \"Reddy\",\n\t\"middleName\": \"Charles\",\n\t\"email\": \"chester.reddy@test.com\",\n\t\"password\": \"Test123.\",\n\t\"address\": \"123Test Ave N\",\n\t\"city\": \"Pullman\",\n\t\"state\": \"WA\",\n\t\"country\": \"US\",\n\t\"zipCode\": \"97666\",\n\t\"phone\": \"1-612-235-4445\",\n\t\"birthDate\": \"1/22/1988\",\n\t\"marinerId\": \"123123123\",\n\t\"loyalty\": \"silver\"\n}"
+                },
+                "reserved" : {
                   "value" : "{\n   \t\"reservedBy\": \"api_automation\",\n   \t\"brand\": \"SBN\",\n\t\"env\": \"STAGE\",\n\t\"firstName\": \"Chester\",\n\t\"lastName\": \"Reddy\",\n\t\"middleName\": \"Charles\",\n\t\"email\": \"chester.reddy@test.com\",\n\t\"password\": \"Test123.\",\n\t\"address\": \"123Test Ave N\",\n\t\"city\": \"Pullman\",\n\t\"state\": \"WA\",\n\t\"country\": \"US\",\n\t\"zipCode\": \"97666\",\n\t\"phone\": \"1-612-235-4445\",\n\t\"birthDate\": \"1/22/1988\",\n\t\"marinerId\": \"123123123\",\n\t\"loyalty\": \"silver\"\n}"
                 }
               }
@@ -477,7 +506,7 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Auto generated using Swagger Inspector",
+            "description" : "OK",
             "content" : {
               "application/json; charset=utf-8" : {
                 "schema" : {
@@ -500,13 +529,23 @@
     },
     "/bookings" : {
       "get" : {
-        "description" : "Auto generated using Swagger Inspector",
+        "description" : "Fetch bookings with specified criteria",
         "parameters" : [ {
           "name" : "polarRegion",
           "in" : "query",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "enum": [
+              "HAQ",
+              "SBQ",
+              "TSTHARES",
+              "TSTSBRES",
+              "TSTHARE1",
+              "TSTSBRE1",
+              "HA",
+              "SB"
+            ]
           },
           "example" : "HAQ"
         }, {
@@ -520,7 +559,11 @@
           "in" : "query",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "enum": [
+              "TEST",
+              "PROD"
+            ]
           },
           "example" : "TEST"
         }, {
@@ -528,13 +571,18 @@
           "in" : "query",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "enum": [
+              "HAL",
+              "SBN",
+              "CUN"
+            ]
           },
           "example" : "HAL"
         } ],
         "responses" : {
           "200" : {
-            "description" : "Auto generated using Swagger Inspector",
+            "description" : "OK",
             "content" : {
               "application/json; charset=utf-8" : {
                 "schema" : {
