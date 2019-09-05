@@ -13,9 +13,20 @@
     "url" : "http://localhost:12700"
   } ],
   "paths" : {
-    "/booking/5cb2aaa86224077b3521b9f0" : {
+    "/booking/{objId}" : {
       "put" : {
-        "description" : "Auto generated using Swagger Inspector",
+        "description" : "Update existing booking record",
+        "parameters": [
+          {
+            "name": "objId",
+            "in": "path",
+            "description": "ID of mongo record to updates",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -93,9 +104,20 @@
         "url" : "http://localhost:12700"
       } ]
     },
-    "/customer/5cb2aaa86224077b3521b9f0" : {
+    "/customer/{objId}" : {
       "put" : {
-        "description" : "Auto generated using Swagger Inspector",
+        "description" : "Update existing customer record",
+        "parameters": [
+          {
+            "name": "objId",
+            "in": "path",
+            "description": "ID of mongo record to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -105,7 +127,16 @@
                   "lastName" : {
                     "type" : "string"
                   },
-                  "occupancy" : {
+                  "country" : {
+                    "type" : "string"
+                  },
+                  "zipCode" : {
+                    "type" : "string"
+                  },
+                  "address" : {
+                    "type" : "string"
+                  },
+                  "city" : {
                     "type" : "string"
                   },
                   "loyalty" : {
@@ -114,22 +145,28 @@
                   "env" : {
                     "type" : "string"
                   },
+                  "birthDate" : {
+                    "type" : "string"
+                  },
                   "marinerId" : {
+                    "type" : "string"
+                  },
+                  "firstName" : {
                     "type" : "string"
                   },
                   "password" : {
                     "type" : "string"
                   },
+                  "phone" : {
+                    "type" : "string"
+                  },
                   "reservedBy" : {
                     "type" : "string"
                   },
-                  "polarRegion" : {
+                  "middleName" : {
                     "type" : "string"
                   },
-                  "currency" : {
-                    "type" : "string"
-                  },
-                  "departureDate" : {
+                  "state" : {
                     "type" : "string"
                   },
                   "brand" : {
@@ -137,15 +174,12 @@
                   },
                   "email" : {
                     "type" : "string"
-                  },
-                  "bookingNumber" : {
-                    "type" : "string"
                   }
                 }
               },
               "examples" : {
                 "0" : {
-                  "value" : "{\n    \"reservedBy\": \"jdmallorey\",\n    \"lastName\": \"JOHNSON\",\n    \"polarRegion\": \"HAQ\",\n    \"brand\": \"HAL\",\n    \"env\": \"TEST\",\n    \"departureDate\": \"12/14/2020\",\n    \"email\": \"usr@test.com\",\n    \"password\": \"Test1234.\",\n    \"marinerId\": \"1234567890\",\n    \"occupancy\": \"2\",\n    \"loyalty\": \"gold\",\n    \"currency\": \"AUD\"\n}"
+                  "value" : "{\n   \t\"reservedBy\": \"api_automation\",\n   \t\"brand\": \"SBN\",\n\t\"env\": \"STAGE\",\n\t\"firstName\": \"Chester\",\n\t\"lastName\": \"Reddy\",\n\t\"middleName\": \"Charles\",\n\t\"email\": \"chester.reddy@test.com\",\n\t\"password\": \"Test123.\",\n\t\"address\": \"123Test Ave N\",\n\t\"city\": \"Pullman\",\n\t\"state\": \"WA\",\n\t\"country\": \"US\",\n\t\"zipCode\": \"97666\",\n\t\"phone\": \"1-612-235-4445\",\n\t\"birthDate\": \"1/22/1988\",\n\t\"marinerId\": \"123123123\",\n\t\"loyalty\": \"silver\"\n}"
                 }
               }
             }
@@ -253,11 +287,23 @@
         "url" : "http://localhost:12700"
       } ]
     },
-    "/customer/5ca2f9263be211f80dc26670" : {
+    "/customer/{id}" : {
       "delete" : {
         "responses" : {
           "200" : {
-            "description" : "Auto generated using Swagger Inspector",
+            "description" : "Remove existing booking record",
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "description": "ID of mongo record to delete",
+                "required": true,
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            ],
             "content" : {
               "text/html; charset=utf-8" : {
                 "schema" : {
@@ -271,8 +317,7 @@
         "servers" : [ {
           "url" : "http://localhost:12700"
         } ],
-        "tags" : [ "Customers" ],
-        "description" : "Remove customer record using mongo id"
+        "tags" : [ "Customers" ]
       },
       "servers" : [ {
         "url" : "http://localhost:12700"
@@ -325,9 +370,21 @@
         "url" : "http://localhost:12700"
       } ]
     },
-    "/booking/5ca2f9263be211f80dc26670" : {
+    "/booking/{id}" : {
       "delete" : {
-        "description" : "Auto generated using Swagger Inspector",
+        "description" : "Remove existing customer record",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of mongo record to update",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
         "responses" : {
           "200" : {
             "description" : "Auto generated using Swagger Inspector",
@@ -362,7 +419,16 @@
                   "lastName" : {
                     "type" : "string"
                   },
-                  "occupancy" : {
+                  "country" : {
+                    "type" : "string"
+                  },
+                  "zipCode" : {
+                    "type" : "string"
+                  },
+                  "address" : {
+                    "type" : "string"
+                  },
+                  "city" : {
                     "type" : "string"
                   },
                   "loyalty" : {
@@ -371,22 +437,28 @@
                   "env" : {
                     "type" : "string"
                   },
+                  "birthDate" : {
+                    "type" : "string"
+                  },
                   "marinerId" : {
+                    "type" : "string"
+                  },
+                  "firstName" : {
                     "type" : "string"
                   },
                   "password" : {
                     "type" : "string"
                   },
+                  "phone" : {
+                    "type" : "string"
+                  },
                   "reservedBy" : {
                     "type" : "string"
                   },
-                  "polarRegion" : {
+                  "middleName" : {
                     "type" : "string"
                   },
-                  "currency" : {
-                    "type" : "string"
-                  },
-                  "departureDate" : {
+                  "state" : {
                     "type" : "string"
                   },
                   "brand" : {
@@ -394,15 +466,12 @@
                   },
                   "email" : {
                     "type" : "string"
-                  },
-                  "bookingNumber" : {
-                    "type" : "string"
                   }
                 }
               },
               "examples" : {
                 "0" : {
-                  "value" : "{\n    \"reservedBy\": \"jdmallorey\"SASCV\",\n    \"lastName\": \"JOHNSON\",\n    \"polarRegion\": \"HAQ\",\n    \"brand\": \"HAL\",\n    \"env\": \"TEST\",\n    \"departureDate\": \"12/14/2020\",\n    \"email\": \"usr@test.com\",\n    \"password\": \"Test1234.\",\n    \"marinerId\": \"1234567890\",\n    \"occupancy\": \"2\",\n    \"loyalty\": \"gold\",\n    \"currency\": \"AUD\"\n}"
+                  "value" : "{\n   \t\"reservedBy\": \"api_automation\",\n   \t\"brand\": \"SBN\",\n\t\"env\": \"STAGE\",\n\t\"firstName\": \"Chester\",\n\t\"lastName\": \"Reddy\",\n\t\"middleName\": \"Charles\",\n\t\"email\": \"chester.reddy@test.com\",\n\t\"password\": \"Test123.\",\n\t\"address\": \"123Test Ave N\",\n\t\"city\": \"Pullman\",\n\t\"state\": \"WA\",\n\t\"country\": \"US\",\n\t\"zipCode\": \"97666\",\n\t\"phone\": \"1-612-235-4445\",\n\t\"birthDate\": \"1/22/1988\",\n\t\"marinerId\": \"123123123\",\n\t\"loyalty\": \"silver\"\n}"
                 }
               }
             }
@@ -424,7 +493,8 @@
         "servers" : [ {
           "url" : "http://localhost:12700"
         } ],
-        "tags" : [ "Customers" ]
+        "tags" : [ "Customers" ],
+        "description" : "Remove customer record using mongo id"
       },
       "servers" : [ {
         "url" : "http://localhost:12700"
@@ -491,7 +561,7 @@
     "name" : "Bookings",
     "description" : "Fetch, add and modify booking data"
   }, {
-    "description" : "Fetch, add and modify customer data",
-    "name" : "Customers"
+    "name" : "Customers",
+    "description" : "Fetch, add and modify customer data"
   } ]
 }

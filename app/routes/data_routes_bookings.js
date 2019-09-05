@@ -1,7 +1,7 @@
 var ObjectID = require('mongodb').ObjectID;
 
 module.exports = function(app, db) {
-  var mongoCollection = "bookings';
+  var mongoCollection = 'bookings';
 
   // GET
   app.get('/bookings', (req, res) => {
