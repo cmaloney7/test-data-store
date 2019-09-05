@@ -1,296 +1,565 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "description": "my description of the store",
-    "version": "1.0.0",
-    "title": "Test Data Store",
-    "license": {
-      "name": "Apache 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "test-data-store",
+    "description" : "An API interface for customers who need to consume test data. ",
+    "version" : "0.1",
+    "license" : {
+      "url" : "http://www.apache.org/licenses/",
+      "name" : "Apache License v2.0"
     }
   },
-  "tags": [
-    {
-      "name": "booking",
-      "description": "Modification to booking data"
-    },
-    {
-      "name": "bookings",
-      "description": "Get booking data"
-    },
-    {
-      "name": "customer",
-      "description": "Modification to booking data"
-    },
-    {
-      "name": "customers",
-      "description": "Get customer data"
-    }
-  ],
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "paths": {
-    "/bookings": {
-      "get": {
-        "tags": [
-          "bookings"
-        ],
-        "summary": "Returns bookings",
-        "description": "Returns bookings based on search critera",
-        "operationId": "getBookings",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
+  "servers" : [ {
+    "url" : "http://localhost:12700"
+  } ],
+  "paths" : {
+    "/booking/{objIdA}" : {
+      "put" : {
+        "description" : "Update existing booking record",
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "description": "Booking data to be added to the store",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/BookingSearch"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/booking": {
-      "post": {
-        "tags": [
-          "booking"
-        ],
-        "summary": "Add a booking",
-        "description": "Adds a new booking record to the database",
-        "operationId": "addBooking",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Booking data to be added to the store",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Booking"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/booking/{id}": {
-      "put": {
-        "tags": [
-          "booking"
-        ],
-        "summary": "Modify a booking",
-        "description": "Modify an existing booking.  Requires the  '_id' of the exiting record. Example: '_id': '5d5a0509a042a3001caa3b62'",
-        "operationId": "updateBooking",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
+            "name": "objIdA",
             "in": "path",
-            "description": "ID of booking to modify",
-            "required": true,
-            "type": "integer",
-            "format": "int64"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Booking data to be added to the store",
+            "description": "ID of mongo record to updates",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Booking"
+              "type": "string"
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK"
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "reservedBy" : {
+                    "type" : "string"
+                  },
+                  "lastName" : {
+                    "type" : "string"
+                  },
+                  "occupancy" : {
+                    "type" : "string"
+                  },
+                  "loyalty" : {
+                    "type" : "string"
+                  },
+                  "env" : {
+                    "type" : "string"
+                  },
+                  "marinerId" : {
+                    "type" : "string"
+                  },
+                  "password" : {
+                    "type" : "string"
+                  },
+                  "polarRegion" : {
+                    "type" : "string"
+                  },
+                  "currency" : {
+                    "type" : "string"
+                  },
+                  "departureDate" : {
+                    "type" : "string"
+                  },
+                  "brand" : {
+                    "type" : "string"
+                  },
+                  "email" : {
+                    "type" : "string"
+                  },
+                  "bookingNumber" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "examples" : {
+                "0" : {
+                  "value" : "{\n\t\"reservedBy\": \"jdmallorey\",\n    \"bookingNumber\": \"ASASCV\",\n    \"lastName\": \"JOHNSON\",\n    \"polarRegion\": \"HAQ\",\n    \"brand\": \"HAL\",\n    \"env\": \"TEST\",\n    \"departureDate\": \"12/14/2020\",\n    \"email\": \"usr@test.com\",\n    \"password\": \"Test1234.\",\n    \"marinerId\": \"1234567890\",\n    \"occupancy\": \"2\",\n    \"loyalty\": \"gold\",\n    \"currency\": \"AUD\"\n}"
+                }
+              }
+            }
           }
-        }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:12700"
+        } ],
+        "tags" : [ "Bookings" ]
       },
-      "delete": {
-        "tags": [
-          "booking"
-        ],
-        "summary": "Delete a booking",
-        "description": "Delete an existing booking.  Requires the  '_id' of the exiting record.",
-        "operationId": "deleteBooking",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
+      "servers" : [ {
+        "url" : "http://localhost:12700"
+      } ]
+    },
+    "/customer/{objIdC}" : {
+      "put" : {
+        "description" : "Update existing customer record",
         "parameters": [
           {
-            "name": "id",
+            "name": "objIdC",
             "in": "path",
-            "description": "ID of booking to delete from database",
+            "description": "ID of mongo record to update",
             "required": true,
-            "type": "integer",
-            "format": "int64"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK"
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "lastName" : {
+                    "type" : "string"
+                  },
+                  "country" : {
+                    "type" : "string"
+                  },
+                  "zipCode" : {
+                    "type" : "string"
+                  },
+                  "address" : {
+                    "type" : "string"
+                  },
+                  "city" : {
+                    "type" : "string"
+                  },
+                  "loyalty" : {
+                    "type" : "string"
+                  },
+                  "env" : {
+                    "type" : "string"
+                  },
+                  "birthDate" : {
+                    "type" : "string"
+                  },
+                  "marinerId" : {
+                    "type" : "string"
+                  },
+                  "firstName" : {
+                    "type" : "string"
+                  },
+                  "password" : {
+                    "type" : "string"
+                  },
+                  "phone" : {
+                    "type" : "string"
+                  },
+                  "reservedBy" : {
+                    "type" : "string"
+                  },
+                  "middleName" : {
+                    "type" : "string"
+                  },
+                  "state" : {
+                    "type" : "string"
+                  },
+                  "brand" : {
+                    "type" : "string"
+                  },
+                  "email" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "examples" : {
+                "0" : {
+                  "value" : "{\n   \t\"reservedBy\": \"api_automation\",\n   \t\"brand\": \"SBN\",\n\t\"env\": \"STAGE\",\n\t\"firstName\": \"Chester\",\n\t\"lastName\": \"Reddy\",\n\t\"middleName\": \"Charles\",\n\t\"email\": \"chester.reddy@test.com\",\n\t\"password\": \"Test123.\",\n\t\"address\": \"123Test Ave N\",\n\t\"city\": \"Pullman\",\n\t\"state\": \"WA\",\n\t\"country\": \"US\",\n\t\"zipCode\": \"97666\",\n\t\"phone\": \"1-612-235-4445\",\n\t\"birthDate\": \"1/22/1988\",\n\t\"marinerId\": \"123123123\",\n\t\"loyalty\": \"silver\"\n}"
+                }
+              }
+            }
           }
-        }
-      }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:12700"
+        } ],
+        "tags" : [ "Customers" ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:12700"
+      } ]
+    },
+    "/booking" : {
+      "post" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "lastName" : {
+                    "type" : "string"
+                  },
+                  "occupancy" : {
+                    "type" : "string"
+                  },
+                  "loyalty" : {
+                    "type" : "string"
+                  },
+                  "env" : {
+                    "type" : "string"
+                  },
+                  "marinerId" : {
+                    "type" : "string"
+                  },
+                  "password" : {
+                    "type" : "string"
+                  },
+                  "reservedBy" : {
+                    "type" : "string"
+                  },
+                  "polarRegion" : {
+                    "type" : "string"
+                  },
+                  "currency" : {
+                    "type" : "string"
+                  },
+                  "departureDate" : {
+                    "type" : "string"
+                  },
+                  "brand" : {
+                    "type" : "string"
+                  },
+                  "email" : {
+                    "type" : "string"
+                  },
+                  "bookingNumber" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "examples" : {
+                "0" : {
+                  "value" : "{\n   \t\"reservedBy\": \"jdmallorey\",\n\t\"bookingNumber\": \"ASASXZ\",\n\t\"lastName\": \"JOHNSON\",\n\t\"polarRegion\": \"HAQ\",\n\t\"brand\": \"HAL\",\n\t\"env\": \"TEST\",\n\t\"departureDate\": \"11/14/2020\",\n\t\"email\": \"usr@test.com\",\n\t\"password\": \"Test1234.\",\n\t\"marinerId\": \"1234567890\",\n\t\"occupancy\": \"2\",\n\t\"loyalty\": \"gold\",\n\t\"currency\": \"AUD\"\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:12700"
+        } ],
+        "tags" : [ "Bookings" ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:12700"
+      } ]
+    },
+    "/customer/{objIdD}" : {
+      "delete" : {
+        "description" : "Remove existing customer record",
+        "parameters": [
+          {
+            "name": "objIdD",
+            "in": "path",
+            "description": "ID of customer mongo record to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "content" : {
+              "text/html; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:12700"
+        } ],
+        "tags" : [ "Customers" ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:12700"
+      } ]
+    },
+    "/customers" : {
+      "get" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "parameters" : [ {
+          "name" : "reservedBy",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "api_automation"
+        }, {
+          "name" : "env",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "STAGE"
+        }, {
+          "name" : "brand",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "SBN"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:12700"
+        } ],
+        "tags" : [ "Customers" ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:12700"
+      } ]
+    },
+    "/booking/{objIdB}" : {
+      "delete" : {
+        "description" : "Remove existing booking record",
+        "parameters": [
+          {
+            "name": "objIdB",
+            "in": "path",
+            "description": "ID of mongo record to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "text/html; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:12700"
+        } ],
+        "tags" : [ "Bookings" ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:12700"
+      } ]
+    },
+    "/customer" : {
+      "post" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "lastName" : {
+                    "type" : "string"
+                  },
+                  "country" : {
+                    "type" : "string"
+                  },
+                  "zipCode" : {
+                    "type" : "string"
+                  },
+                  "address" : {
+                    "type" : "string"
+                  },
+                  "city" : {
+                    "type" : "string"
+                  },
+                  "loyalty" : {
+                    "type" : "string"
+                  },
+                  "env" : {
+                    "type" : "string"
+                  },
+                  "birthDate" : {
+                    "type" : "string"
+                  },
+                  "marinerId" : {
+                    "type" : "string"
+                  },
+                  "firstName" : {
+                    "type" : "string"
+                  },
+                  "password" : {
+                    "type" : "string"
+                  },
+                  "phone" : {
+                    "type" : "string"
+                  },
+                  "reservedBy" : {
+                    "type" : "string"
+                  },
+                  "middleName" : {
+                    "type" : "string"
+                  },
+                  "state" : {
+                    "type" : "string"
+                  },
+                  "brand" : {
+                    "type" : "string"
+                  },
+                  "email" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "examples" : {
+                "0" : {
+                  "value" : "{\n   \t\"reservedBy\": \"api_automation\",\n   \t\"brand\": \"SBN\",\n\t\"env\": \"STAGE\",\n\t\"firstName\": \"Chester\",\n\t\"lastName\": \"Reddy\",\n\t\"middleName\": \"Charles\",\n\t\"email\": \"chester.reddy@test.com\",\n\t\"password\": \"Test123.\",\n\t\"address\": \"123Test Ave N\",\n\t\"city\": \"Pullman\",\n\t\"state\": \"WA\",\n\t\"country\": \"US\",\n\t\"zipCode\": \"97666\",\n\t\"phone\": \"1-612-235-4445\",\n\t\"birthDate\": \"1/22/1988\",\n\t\"marinerId\": \"123123123\",\n\t\"loyalty\": \"silver\"\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:12700"
+        } ],
+        "tags" : [ "Customers" ],
+        "description" : "Remove customer record using mongo id"
+      },
+      "servers" : [ {
+        "url" : "http://localhost:12700"
+      } ]
+    },
+    "/bookings" : {
+      "get" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "parameters" : [ {
+          "name" : "polarRegion",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "HAQ"
+        }, {
+          "name" : "reservedBy",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "env",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "TEST"
+        }, {
+          "name" : "brand",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "HAL"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:12700"
+        } ],
+        "tags" : [ "Bookings" ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:12700"
+      } ]
     }
   },
-  "definitions": {
-    "Booking": {
-      "type": "object",
-      "required": [
-        "bookingNumber",
-        "lastName"
-      ],
-      "properties": {
-        "reservedBy": {
-          "type": "string",
-          "description": "(optional) - identifier used to mark test data as private. Records containing a value in 'reservedBy' can only be accessed in the GET if specified in the search criteria body"
-        },
-        "bookingNumber": {
-          "type": "string",
-          "example": "CPMGDR"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "polarRegion": {
-          "type": "string",
-          "default": "HAQ",
-          "enum": [
-            "HAQ",
-            "TSTHARES",
-            "SBQ",
-            "TSTSBRES",
-            "HA",
-            "SB"
-          ]
-        },
-        "brand": {
-          "type": "string",
-          "enum": [
-            "HAL",
-            "SBN"
-          ]
-        },
-        "env": {
-          "type": "string",
-          "description": "TEST or PROD",
-          "enum": [
-            "TEST",
-            "PROD"
-          ]
-        },
-        "departureDate": {
-          "type": "string",
-          "example": "01/09/2020",
-          "description": "mm/dd/yyyy"
-        },
-        "email": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        },
-        "marinerId": {
-          "type": "string"
-        },
-        "occupancy": {
-          "description": "number of guests",
-          "type": "integer"
-        },
-        "loyalty": {
-          "description": "loyalty status of a guest",
-          "type": "string",
-          "enum": [
-            "club",
-            "silver",
-            "gold",
-            "platinum",
-            "diamond",
-            "diamond elite"
-          ]
-        },
-        "currency": {
-          "type": "string",
-          "enum": [
-            "USD",
-            "AUD",
-            "CAD",
-            "EUR"
-          ]
-        }
-      }
-    },
-    "BookingSearch": {
-      "type": "object",
-      "required": [
-        "bookingNumber",
-        "lastName"
-      ],
-      "properties": {
-        "reservedBy": {
-          "type": "string",
-          "description": "(optional) - identifier used to mark test data as private. Records containing a value in 'reservedBy' can only be accessed in the GET if specified in the search criteria body"
-        },
-        "polarRegion": {
-          "type": "string",
-          "enum": [
-            "HAQ",
-            "TSTHARES",
-            "SBQ",
-            "TSTSBRES",
-            "HA",
-            "SB"
-          ]
-        },
-        "brand": {
-          "type": "string",
-          "enum": [
-            "HAL",
-            "SBN"
-          ]
-        },
-        "env": {
-          "type": "string",
-          "description": "TEST or PROD",
-          "enum": [
-            "TEST",
-            "PROD"
-          ]
-        }
-      }
-    }
-  }
+  "tags" : [ {
+    "name" : "Bookings",
+    "description" : "Fetch, add and modify booking data"
+  }, {
+    "name" : "Customers",
+    "description" : "Fetch, add and modify customer data"
+  } ]
 }
