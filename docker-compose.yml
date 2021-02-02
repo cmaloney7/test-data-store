@@ -41,7 +41,7 @@ services:
     ports:
       - "12700:12700"
     deploy:
-      replicas: 2
+      replicas: 1
       restart_policy:
         condition: on-failure
       resources:
